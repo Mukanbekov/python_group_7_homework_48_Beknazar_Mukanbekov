@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block menu %}
+    <li><a href="{% url "products_update" products.id %}">
+         <img src= width="30" height="20" class="fa fa-scissors" alt=""> Редактировать</a></li>
+    <li><a href="{% url "products_delete" products.id %}">
+         <img src= width="30" height="20" class="fa fa-bitbucket" alt=""> Удалить</a></li>
+{% endblock menu %}
+
+{% block page_header %}Товар {{ products.id }}{% endblock page_header %}
+
+{% block content %}
+    <div class="price_table">
+        <div class="column_1">
+             <ul>
+                 <li class="header_row_1 align_center">
+                    <div class="pack-title"></div></li>
+                 <li class="row_style_2 align_center"><span><p>Название: {{ products.name }}</p></span></li>
+                 <li class="row_style_2 align_center"><textarea readonly id="one" style="background-color: rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0)">{{ products.text }}</textarea></li>
+                 <li class="row_style_2 align_center"><span><p>Категория: {{ products.get_category_display }}</p></span></li>
+                 <li class="row_style_2 align_center"><span><p>Цена: {{ products.cost }}</p></span></li>
+                 <li class="row_style_2 align_center"><span><p>Остаток: {{ products.remainder }}</p></span></li>
+             </ul>
+        </div>
+    </div><!--end column-->
+{% endblock content %}
