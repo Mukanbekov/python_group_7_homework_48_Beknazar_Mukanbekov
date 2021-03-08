@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="price_table">
+     <div class="column_1">
+         <ul>
+             <li class="header_row_1 align_center">
+                 <div class="pack-title"></div>
+             </li>
+             <li class="header_row_2 align_center">
+                 <div class="price"><span>Название</span></div>
+             </li>
+             {% for product in products %}
+             <li class="row_style_1 align_center"><span><a href="{% url "products_view.html" product.id %}">{{ product.name }}</a></span></li>
+             {% endfor %}
+         </ul>
+     </div><!--end column-->
+    <div class="column_1">
+         <ul>
+             <li class="header_row_1 align_center">
+                <div class="pack-title"></div>
+             </li>
+             <li class="header_row_2 align_center">
+                 <div class="price"><span>Категория</span></div>
+             </li>
+             {% for product in products %}
+             <li class="row_style_2 align_center"><span>{{ product.get_category_display }}</span></li>
+             {% endfor %}
+         </ul>
+	 </div><!--end column-->
+    <div class="column_1">
+         <ul>
+             <li class="header_row_1 align_center">
+                <div class="pack-title"></div>
+             </li>
+             <li class="header_row_2 align_center">
+                 <div class="price"><span>Цена</span></div>
+             </li>
+             {% for product in products %}
+             <li class="row_style_2 align_center"><span>{{ product.cost }}</span></li>
+             {% endfor %}
+         </ul>
+	 </div><!--end column-->
+    </div>
+{% endblock content %}
